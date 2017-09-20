@@ -1,0 +1,13 @@
+\begin{circuitikz}[scale = 0.7, transform shape]
+  \draw (0,0) node[op amp] (opamp) {};
+  \draw (opamp.+) -| ++ (-0.5,-0.5) node[ground]{};
+  \draw (opamp.-)++(-2.2,0) node[left]{$-\SI{15}{\volt}$} to[photodiode,l^=\raisebox{10pt}{Photodiode}] ++ (2,0) to[short,n=J] ++(0.2,0) -- (opamp.-);
+  \draw (opamp.out) -- ++(2,0) to[short,n=out] ++(0.5,0) node[right]{$V_{\text{out}}$} ;
+  \draw (J) -- ++(0,1.5) to[short,n=L] ++(0,0.7) -- ++(0,1) to[capacitor,l^=0.1<\micro\farad>]
+  ++(4.5,0) -- ++ (0,-1) to[short,n=R] ++(0,-0.7) -- ++(0,1.5) |- (out);
+  \draw (L) to[R,l^=75<\kilo\ohm>] (R);
+  \draw (opamp.down) to[short,n=B] ++(0,-1) node[below]{$+\SI{15}{\volt}$};
+  \draw (B) to[capacitor,l_=0.1<\micro\farad>] ++(2.5,0) node[ground]{};
+  \draw (opamp.up) to[short,n=T] ++(0,1) node[above]{$-\SI{15}{\volt}$};
+  \draw (T) to[capacitor,l^=0.1<\micro\farad>] ++(2.5,0) node[ground]{};
+\end{circuitikz}

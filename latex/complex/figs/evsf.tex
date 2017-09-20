@@ -1,0 +1,62 @@
+% This file was created by matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+%
+\begin{tikzpicture}[%
+trim axis left
+]
+
+\begin{axis}[%
+width=1.902in,
+height=2in,
+at={(0in,0in)},
+scale only axis,
+xmin=400000000000000,
+xmax=800000000000000,
+xlabel style={font=\color{white!15!black}},
+xlabel={Frequency (\si{\hertz})},
+ymin=2.5e-19,
+ymax=5.5e-19,
+ylabel style={font=\color{white!15!black}},
+ylabel={Energy (\si{\joule})},
+axis background/.style={fill=white},
+axis x line*=bottom,
+axis y line*=left,
+legend style={at={(0.03,0.97)}, anchor=north west, legend cell align=left, align=left, draw=white!15!black},
+legend style={font=\small}
+]
+\addplot[only marks, mark=o, mark options={}, mark size=1.5000pt, draw=mycolor1] table[row sep=crcr]{%
+x	y\\
+778681709090909	4.81103771692778e-19\\
+758968248101266	4.81912182172225e-19\\
+749481145000000	4.72791125275254e-19\\
+740228291358025	4.6507633297149e-19\\
+697191762790698	4.34356926725962e-19\\
+643331454935622	5.0356978811933e-19\\
+540166590990991	3.09850334114791e-19\\
+530606120353982	3.16649747259692e-19\\
+525951680701754	3.12233410258083e-19\\
+521378187826087	3.13005811279515e-19\\
+512465740170940	3.031170480764e-19\\
+508122810169491	3.02819573161254e-19\\
+504701107744108	2.99793483937841e-19\\
+499654096666667	2.93112412543666e-19\\
+493079700657895	2.93066356120829e-19\\
+475861044444444	2.98027898146227e-19\\
+472114107086614	2.86803807474789e-19\\
+466240214618974	2.81148793630728e-19\\
+461219166153846	3.19708308401669e-19\\
+428274940000000	3.17351977588301e-19\\
+};
+\addlegendentry{Experimental Data}
+
+\addplot [color=mycolor2, line width=2.0pt]
+  table[row sep=crcr]{%
+428274940000000	2.68873524863785e-19\\
+778681709090909	4.88860954297792e-19\\
+};
+\addlegendentry{Fit}
+
+\end{axis}
+\end{tikzpicture}%

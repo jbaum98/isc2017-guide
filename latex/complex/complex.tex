@@ -1,0 +1,294 @@
+\documentclass{lab}
+
+\labTitle{Lab \#11: Macroscopic Methods for Measuring Planck's Constant}
+\labAuthor{Jake Waksbaum and Oriel Farajun}
+\labDate{Friday, May 12}
+
+\addbibresource{complex.bib}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  In this paper we present two methods for measuring Planck's constant $h$. The
+  first, based on earlier work~\parencite{zhou}, measures the stopping voltage
+  of LEDs to determine the energy of the photons produced and fits the result
+  from many LEDs to the equation $E = h\nu$. The second is novel, and involves
+  measuring the radiation spectrum of the sun using a photodiode and light
+  filters, and fitting it to the blackbody radiation curve predicted by Planck's
+  Law. We measured $h$ to be \num{6.2781 +- .12064 e-34} and \num{7.7868 +-
+    .60495 e-34} using the two methods respectively.
+\end{abstract}
+
+\section{Introduction}
+\label{Sec:Intro}
+
+Since it's development in the beginning of the 20th century, quantum mechanics
+has revolutionized physics by overturning widely held beliefs about the nature
+of the universe and solving previously intractable problems. At the same time,
+it shifted the focus of physics from the realm of common experience to the
+quantum world for which most people have no intuition. Our goal was to measure
+Planck's constant, one of the fundamental constants of quantum mechanics, by
+observing familiar phenomena in the macroscopic world.
+
+One of the problems that originally motivated the development of quantum
+mechanics was the paradox of blackbody radiation. Classical mechanics predicted
+a blackbody would radiate infinite energy. Planck introduced the idea of
+intensity of light of wavelength $\lambda$ radiated by a blackbody at some temperature
+$T$ that became known as Planck's Law:
+\begin{equation}
+  I_T(\lambda) = \frac{2hc^2}{\lambda^5} \frac{1}{\exp(\frac{hc}{k_B T} \frac{1}{\lambda})-1}
+\end{equation}
+where $k_B = \num{1.38064852e-23}$ is Boltzmann's constant.
+
+Another one of the early successes of quantum mechanics was the explanation of
+the photoelectric effect due to Einstein. The photoelectric effect is the
+production of a current due to incident light, and according to classical
+mechanics the kinetic energy of the electrons should increase with the intensity
+of the incident light. However, experiments showed that the kinetic energy of
+the electrons depended on the frequency of the incident light. Einstein
+explained this phenomenon using the idea of light as discrete quanta called
+photons, and derived the Planck-Einstein relation for the energy of a photon:
+\begin{equation}
+  E = h\nu
+\end{equation}
+where $h$ is the same constant introduced by Planck in explaining blackbody
+radiation.
+
+Our first method for measuring Planck's constant is related to the photoelectric
+effect. An LED produces light by a mechanism that is almost the reverse of the
+photoelectric effect: electrons travel across a voltage drop and emit photons of
+a specific frequency following the Planck-Einstein relation. The stopping
+voltage of an LED is the lowest voltage at which it produces light, and at that
+voltage the voltage drop across the LED is equal to the voltage drop of the
+electron and the emitted photon. Therefore we have
+\begin{equation}
+  E = q_e V_{\text{stop}} = h\nu
+\end{equation}
+where $q_e = \SI{1.60217662e-19}{\coulomb}$ is the charge on an electron and $\nu$
+is the frequency.
+
+Determining when an LED just begins to produce light is subjective and
+error-prone. Instead, one can use an RC circuit in which a capacitor discharges
+to power an LED (Fig.~\ref{fig:discharging}). Assuming that the voltage drop
+across the LED is constant, the voltage drop across the capacitor will be given
+by
+\begin{equation}
+  V(t) = \qty(\frac{Q_0}{C} - V_{\text{stop}}) \exp(-\frac{t}{RC}) + V_{\text{stop}}
+  \label{eq:led_cap}
+\end{equation}
+Fitting voltage data to the form $V = A\exp(Bt) + C$ allows us to determine the
+stopping voltage, and fitting the stopping voltages versus the wavelengths of
+the LEDs using the Planck-Einstein relation allows us to determine $h$.
+
+Our second method is related to blackbody radiation. The sun is approximately a
+blackbody radiating at \SI{5778}{\kelvin}. We attempt to measure its radiation
+spectrum using a photodiode circuit (Fig.~\ref{fig:photodiode}) that produces
+voltage in response to the intensity of incident light. By covering the
+photodiode with filters that admit only certain bands of light, we can measure
+the relative intensity of light at different frequencies. Fitting this curve to
+the curve predicted by Planck's Law allows us to determine $h$.
+
+\section{Materials and Methods}
+\label{Sec:MatsMeths}
+
+The circuit shown in Fig.~\ref{fig:circuit} was used to first charge the
+capacitor (Fig.~\ref{fig:charging}) and then to discharge the capacitor through
+the LED (Fig.~\ref{fig:discharging}) for approximately $15\tau =
+\SI{150}{\second}$. The voltmeter was connected to a computer that recorded the
+voltage drop every \SI{0.01}{\second}. This process was repeated with all of the
+LEDs available.
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \input{figs/charging.tex}
+    \caption{Charging\label{fig:charging}}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \input{figs/discharging.tex}
+    \caption{Discharging\label{fig:discharging}}
+  \end{subfigure}
+  \caption{LED RC Circuit\label{fig:circuit}}
+\end{figure}
+
+The circuit shown in Fig.~\ref{fig:photodiode} was connected to a multimeter
+measuring the voltage difference between $V_{\text{out}}$ and ground. The
+\SI{+-15}{\volt} voltages were altered from \SIrange{9}{27}{\volt} as the
+photodiode's generated voltage reached the upper bound determined by the input
+voltage.
+
+\begin{figure}[h]
+  \centering
+  \input{figs/photodiode.tex}
+  \caption{Photodiode Circuit\label{fig:photodiode}}
+\end{figure}
+
+The photodiode was covered with various filters and exposed to the sun's light,
+and the generated voltage was recorded. The date, time, and latitude and
+longitude were also recorded for each trial.
+
+The photodiode produces voltage more readily in response to light of different
+frequencies; to correct for this, the spectral response curve for the photodiode
+was obtained from the manufacturer and the intensities were divided by the
+corresponding responsivity.
+
+The atmosphere itself absorbs light of different wavelengths in different ways.
+To correct for this, we followed the recommendations of~\cite{nasa}. We used the
+date, time, and location to calculate the air mass using formulas from
+\cite{noaa}. We used Ångstrom turbidity coefficients $\alpha = 1.3$ and $\beta = 0.085$.
+
+\section{Results and Discussion}
+\label{Sec:ResDisc}
+
+Fig.~\ref{fig:complex} shows the change in voltage over time for a specific
+trial. When attempting to fit the data to a decay curve, we first tried a
+fitting it to a single decay $V = A\exp(Bt) + C$ as predicted by theory.
+However, we noticed that in-between charging and discharging, the capacitor
+experienced some voltage leakage, decaying even though it was not attached to
+any circuit. In addition, plotting the residual yielded a non-random pattern
+indicating that the fit did not capture some underlying phenomenon occurring in
+the circuit.
+
+This motivated us to try a fit with two exponentials to account for the leakage
+in the form $V = A\exp(Bt) + C\exp(Dt)$. We expected $D$ to be very small to
+correspond to the very slow decay of the leakage. We took $C$ to be the stopping
+voltage because this is the constant voltage other than the main decay that is
+present before the leakage; in this way we try to ignore the leakage. However,
+Fig.~\ref{fig:complex_resid} shows that the residual is still non-random,
+similar to the residual with the single exponential fit. This may be due to a
+non-constant voltage across the LED or to other phenomena we have not
+considered.
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \input{figs/complex_fit}
+    \caption{Experimental data with fit to $V = A\exp(Bt) + C\exp(Dt)$ with $r^2
+      = 0.9999$. \textit{$RC$ decay} shows just the first exponential
+      $A\exp(Bt)$ while\textit{ Long Decay} shows the second exponential
+      $C\exp(Dt)$.\label{fig:complex_fit}}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \input{figs/complex_resid}
+    \caption{Residual of $V = A\exp(Bt) + C\exp(Dt)$
+      fit.\label{fig:complex_resid}}
+  \end{subfigure}
+  \caption{Double Exponential Fit: Data from \SI{400}{\nano\meter}
+    trial\label{fig:complex}}
+\end{figure}
+
+Fig.~\ref{fig:evsf} shows the energy of the light at different frequencies, and
+has a slope of $h$. Our experimental value of $h = \num{6.2781 +- .12064 e-34}$
+was close to the theoretical value, with only \SI{6.04}{\percent} error. Perhaps
+voltage leakages from the capacitor caused a divergence from the ideal RC
+circuit that our fit didn't capture, yielding some error in the fit's
+approximation and in the calculation of Planck's constant. We assumed that the
+voltage drop across the LED was constant, which could also have resulted in poor
+fits. In addition, a definitive source of error arises from relying on the
+wavelengths of the LEDs reported by the manufacturer. 
+
+\begin{figure}[h]
+  \centering
+  \input{figs/evsf}
+  \caption{Energy vs. Frequency: Stopping voltages are the constant $C$ obtained
+    from the fits to the voltage data and wavelengths are the manufacturer
+    reported wavelengths of the LEDs. Fit is linear with $r^2 = 0.8664$.\label{fig:evsf}}
+\end{figure}
+
+Fig.~\ref{fig:sun} shows the blackbody radiation curve generated by our data.
+From the fit, we computed $h =\num{7.7868 +- .60495 e-34}$. This is within
+\SI{17.52}{\percent} of the accepted value, which is better than we had hoped
+for a method with so many possible sources of noise. Possible sources of error
+include imperfect blocking of external light, imprecise orientation of the
+filter resulting in reduced light intensity, errors in correcting for the
+spectral absorption of the photometer and atmospheric absorption, and deviations
+in the sun's true radiation spectrum from an ideal blackbody at
+\SI{5778}{\kelvin}.
+
+\begin{figure}[h]
+  \centering
+  \input{figs/sun}
+  \caption{Solar Emission Spectrum: \textit{Corrected Data} shows the intensity data
+    after corrections for the photodiode spectral response and atmospheric
+    absorption. The fit represents a fit to the shape of the curve in Planck's
+    law, $I(\lambda) = A\lambda^{-5} {\qty(\exp(B \lambda^{-1} -1))}^{-1} $ and has $r^2 =
+    0.8152$.\label{fig:sun}}
+\end{figure}
+
+Table~\ref{tab:h} compares the measured values of Planck's constant from both
+methods with the accepted value. We can see that the LED method was more
+accurate, which is consistent with our expectations: the LED method is simpler
+than the solar radiation method because relies on our ability to model
+electronics in the lab, while the solar radiation depends on our ability to
+model the sun, the atmosphere, and the photodiode.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ccc}
+    \toprule
+        & $h$ (\si{\joule\second})    & Percent Error        \\
+    \midrule
+    LED & \num{6.2781 +- .12064 e-34} & \SI{6.04}{\percent}  \\
+    Sun & \num{7.7868 +- .60495 e-34} & \SI{17.52}{\percent} \\
+    \bottomrule
+  \end{tabular}
+  \caption{Computed Values for Planck's Constant\label{tab:h}}
+\end{table}
+
+\section{Conclusion}
+\label{Sec:Conc}
+
+Inherent in both the electron and in the sun, in the atomic and in the
+celestial, can be found one of the fundamental constants of the universe:
+Planck's constant. We used two methods of experimentally determining this
+constant that were related to two of the earliest successes of the quantum
+theory. The LED method proved to be more successful than the blackbody method,
+which we ascribe to the controlled environment in which it was performed; the
+blackbody experiment had many more uncontrolled variables. We consider it a
+significant success that that in both experiments the error was below
+\SI{20}{\percent}. To improve our results for the LED method, we would first
+measure the frequencies of the LEDs directly, since the frequencies listed by
+the manufacturer as the frequencies of the LEDs themselves have errors. In
+addition, we would try to correct for any voltage leakage in the capacitor and
+LED to more nearly approximate an ideal RC-circuit. To improve our results for
+the blackbody experiment, we would build an apparatus that would secure the
+photometer and the filter to point in the same angle so that all the light
+transmitted through the filter would hit the photometer directly.
+
+\section{Acknowledgments}
+\label{Sec:Acks}
+Thanks to Jenn for obtaining so many LEDs, for allowing us to use the filters in
+the filter cubes. Thanks also to Quan for providing us with more filters from
+his lab and for discussing how to deal with leakage in the capacitor.
+
+\pledge{Jake Waksbaum and Oriel Farajun}
+
+\nocite{*}
+\printbibliography%
+\label{Sec:Refs}
+
+\section{Supplementary Information}
+\label{Sec:SupInfo}
+
+\lstinputlisting[language=Matlab]{matlab/sun/sun.m}
+\lstinputlisting[language=Matlab]{matlab/led/calcLEDH.m}
+\lstinputlisting[language=Matlab]{matlab/led/getVF.m}
+\lstinputlisting[language=Matlab]{matlab/led/leds.m}
+\lstinputlisting[language=Matlab]{matlab/led/vfTable.m}
+\lstinputlisting[language=Matlab]{matlab/lib/parseDateISO.m}
+\lstinputlisting[language=Matlab]{matlab/lib/Constants.m}
+\lstinputlisting[language=Matlab]{matlab/sun/airMass.m}
+\lstinputlisting[language=Matlab]{matlab/sun/calcSunH.m}
+\lstinputlisting[language=Matlab]{matlab/sun/correctAtmosphere.m}
+\lstinputlisting[language=Matlab]{matlab/sun/findSpecResponse.m}
+\lstinputlisting[language=Matlab]{matlab/sun/getC13.m}
+
+\end{document}
