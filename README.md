@@ -19,14 +19,14 @@ programming.
 
 LaTeX
 -----
-The LaTeX directory includes a `lab.cls` file that you can use to create lab
-reports in LaTeX more easily. It also includes two example lab reports that
-make use of it, in the [`simple`](latex/simple) and [`complex`](latex/complex)
-subdirectories. The compiled PDF outputs are also in those directories so you
-can see what the finished result can look like.
+The LaTeX directory includes a [`lab.cls`](latex/lab.cls) file that you can use
+to create lab reports in LaTeX more easily. It also includes two example lab
+reports that make use of it, in the [`simple`](latex/simple) and
+[`complex`](latex/complex) subdirectories. The compiled PDF outputs are also in
+those directories so you can see what the finished result can look like.
 
-In order to use the `lab.cls` file it is not necessary to understand how it
-works. An easy way to get started with it is to copy it it into the same
+In order to use [`lab.cls`](latex/lab.cls) it is not necessary to understand
+how it works. An easy way to get started with it is to copy it it into the same
 directory as your other LaTeX files and place this at the top of your LaTeX
 file:
 ```latex
@@ -36,5 +36,5 @@ From there you probably want to make use of the `\labTitle`, `\labAuthor`,
 `\labCollaborators` and `\labDate` commands and call `\maketitle` right after
 your `\begin{document}` as shown in [the simple
 example](latex/simple/simple.tex). For more information about how to use
-`lab.cls` and the features it provides, please see [the examples](latex) or
-[contact Jake](mailto:waksbaum@princeton.edu).
+[`lab.cls`](latex/lab.cls) and the features it provides, please see [the
+examples](latex) or [contact Jake](mailto:waksbaum@princeton.edu).
