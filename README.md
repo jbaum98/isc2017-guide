@@ -19,11 +19,15 @@ programming.
 
 LaTeX
 -----
+<<<<<<< HEAD
 First, the directory [`basic_example`](latex/basic_example/) contains a simple example of a latex file
 and some of the basic commands and environment you will need to know to write
 LaTeX documents. Opening the code, which is contained in the file 'example.tex',
 next to the PDF is the most effective way to learn the basics. 
 The LaTeX directory also includes a [`lab.cls`](latex/lab.cls) file that you can use
+=======
+The LaTeX directory includes a [`lab.cls`](latex/lab.cls) file that you can use
+>>>>>>> 96c787fb81155d8229493e3761566334ff129a93
 to create lab reports in LaTeX more easily. It also includes two example lab
 reports that make use of it, in the [`simple`](latex/simple) and
 [`complex`](latex/complex) subdirectories. The compiled PDF outputs are also in
