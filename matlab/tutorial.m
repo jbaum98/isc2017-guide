@@ -77,21 +77,3 @@ if rand_mat(1) > .1
 else 
     disp('It is not bigger than .1!');
 end
-
-%% PROBLEM 2
-% Create a 100x1 matrix of random numbers. Then, find the elements that 
-% are greater than .3 using a for loop and an if statement. Then, find
-% those elements again, but using logical indexing
-
-% Solution
-rand_100 = rand(100,1);
-
-% Using a for loop, find the sum of the values greater than .5
-for ind=1:length(rand)
-    if rand_100(ind) > .3
-        disp(rand_100(ind))
-    end
-end
-
-% This is faster!!
-rand_100(rand_100 > .3)
