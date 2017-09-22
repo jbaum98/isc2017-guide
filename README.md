@@ -8,13 +8,14 @@ relating to MATLAB.
 
 MATLAB
 ------
-The most important file to pay attention to in the matlab directory is the file
-`reference.mlx`. This is an expanded guide to MATLAB that covers topics more
-in-depth than we can cover in our presentation. However, remember that MATLAB
-is well documented! We have covered a select few subjects that we think are
-particularly useful. Think of this file first as a reference for when you are a
-MATLAB beginner and later as a jumping off point to guide your foray into the
-world of more advanced MATLAB programming.
+The most important file to pay attention to in the [`matlab`](matlab) directory
+is the file [`reference.mlx`](matlab/reference.mlx). This is an expanded guide
+to MATLAB that covers topics more in-depth than we can cover in our
+presentation. However, remember that MATLAB is well documented! We have covered
+a select few subjects that we think are particularly useful. Think of this file
+first as a reference for when you are a MATLAB beginner and later as a jumping
+off point to guide your foray into the world of more advanced MATLAB
+programming.
 
 LaTeX
 -----
