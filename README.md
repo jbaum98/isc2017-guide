@@ -38,7 +38,7 @@ file:
 ```
 From there you probably want to make use of the `\labTitle`, `\labAuthor`,
 `\labCollaborators` and `\labDate` commands and call `\maketitle` right after
-your `\begin{document}` as shown in [the simple example](latex/basic_example/example.tex).
+your `\begin{document}` as shown in [the example](latex/complex/complex.tex).
 For more information about how to use
 [`lab.cls`](latex/lab.cls) and the features it provides, please see [the
 examples](latex) or [contact Jake](mailto:waksbaum@princeton.edu).
