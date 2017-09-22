@@ -1,0 +1,101 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{ISC 2021 \LaTeX\ Basics}
+\author{ISC 2020}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\maketitle
+
+This document shows off some of the features of \LaTeX. First, to display words
+in the output PDF, we simply type them into the body (the space between
+\verb!\begin{document} \end{document}!).
+Now, if we put a single newline between two pieces of text, it has no effect!
+The text is simply concatenated together as if we continued on the same line.
+
+However, with, two newlines, we do see an effect. Two newlines starts
+a new paragraph, which \LaTeX\ automatically indents.\\
+This can alternatively be done with a double backslash (\verb!\\!), but we don't
+get the indentation. \par
+Or, with the command \verb!\par! (for paragraph!), we get the newline and the
+indentation. \par
+
+Notice how the commands we've been using all involve the backslash (\verb!\!)?
+That's because the backslash is a \emph{reserved character}, just like the
+semicolon in java. The backslash will begin every command in \LaTeX. 
+Arguments of the commands will normally be surrounded by curly braces. \par
+
+To do more formatting, we can use commands. It's not like Microsoft Word,
+where what you see is what you get (wysiwyg). We can't just turn on italics.
+Instead, we use the command \verb!\textit!. \textit{This text is italicized!}.
+\textbf{This text is bold face, using the command} \verb!\textbf!. If we just
+want to emphasize some text, we can use \verb!\emph!. This command makes the
+\emph{text stand out} from the surrounding text. \textit{So, if we're in
+  italics, and we want \emph{some text to stand out},} \verb!\emph!
+\textit{will de-italicize it!} \textbf{Similarly, in bold face, text that
+  \emph{stands out} will be italicized.}\par
+
+In addition to commands, \LaTeX\ has structures called \emph{environments}.
+Environments can do a lot of things:
+\begin{enumerate}
+\item Like make this numbered list!
+\item Or make it really easy to typeset math (perhaps the most
+  distinctive feature of \LaTeX) like $a^n + b^n \neq c^n\ \forall\ n \geq 3$.
+\item Or add plots and pictures with captions (examples of which you can see in
+  the sample labs).
+\end{enumerate}
+Notice that we use the command \verb!\item! in enumerate to create another
+numbered point. If you want an unlabeled list, you can use the environment
+\verb!itemize!. It too uses the \verb!\item! command. \par
+
+Back to the math mode we were describing earlier. There, we used a shorthand
+to enter \emph{inline math mode}--single dollar signs on either side of the
+equations causes \LaTeX\ to enter math mode. If we use double dollar signs,
+we can enter the display math environment which puts math on a separate
+line:
+$$ \forall\ x \in \mathbb{Z},\; x\ \vert\ 0.$$
+There are other more advanced math modes that exist (look at the amsmath package
+and its align environment for starters).\par
+
+One last environment is worth explicit mention here. The \emph{verbatim}
+environment is the easiest way for you to enter your \textsc{MATLAB} code, which
+you will be required to do for your labs. Here's an example:
+
+\begin{verbatim}
+This environment uses a different font that is monospaced (makes code 
+easier to read). It also gets rid of all protected characters, 
+so you can backslash \\ and curly brace {} freely. 
+
+Even more importantly, the percent sign (%), which is used to
+comment lines in both MATLAB and LaTeX, no longer has any power.
+We can also start newlines by inserting a newline--this environment
+is much more wysiwyg. 
+
+However, that leads to pitfalls, like lines that run off the page page page page page page page page page
+\end{verbatim}
+
+Back at the beginning of this document, we talked about the body of the document.
+The space before the \verb!\begin{document}! is known as the preamble---in it,
+you can define commands, tell \LaTeX\ what packages to use and insert the title.
+However, to make that title display, we must put the command \verb!\maketitle!
+at the beginning of the body. At the very beginning of the document, we use the
+\verb!\documentclass! command, which tells \LaTeX\ how to format the whole file.
+In almost every case, you will use the article class. If you decide to use
+Jake Waksbaum's lab document class, you can replace the argument \verb!article!
+with \verb!lab!.
+
+One quick note about a command that has been scattered throughout this document:
+the \verb!\verb! command enters an inline \emph{verbatim} mode. To enter the
+arguments, we use exclamation points (!) instead of curly braces ({}), since
+the curly brace is no longer protected. The author of the document suspects you
+will \emph{NEVER} need to use this command. To enter code, use the verbatim
+environment.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
