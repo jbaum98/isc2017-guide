@@ -25,8 +25,8 @@ LaTeX documents. Opening the code, which is contained in the file 'example.tex',
 next to the PDF is the most effective way to learn the basics. 
 The LaTeX directory includes a [`lab.cls`](latex/lab.cls) file that you can use
 to create lab reports in LaTeX more easily. It also includes an example lab
-report that make use of it, in the [`complex`](latex/complex) subdirectories.
-The compiled PDF outputs are also in those directories so you can see what the finished
+report that make use of it, in the [`complex`](latex/complex) subdirectory.
+The compiled PDF outputs are also in that directory so you can see what the finished
 result can look like.
 
 In order to use [`lab.cls`](latex/lab.cls) it is not necessary to understand
