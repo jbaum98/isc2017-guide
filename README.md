@@ -19,15 +19,17 @@ programming.
 
 LaTeX
 -----
-First, the directory [`basic_example`](latex/basic_example/) contains a simple example of a latex file
-and some of the basic commands and environment you will need to know to write
-LaTeX documents. Opening the code, which is contained in the file 'example.tex',
-next to the PDF is the most effective way to learn the basics. 
+First, the directory [`basic_example`](latex/basic_example/) contains a simple
+example of a latex file and some of the basic commands and environment you will
+need to know to write LaTeX documents. Opening the code, which is contained in
+the file [`example.tex`](latex/basic_example/example.tex), next to the PDF is
+the most effective way to learn the basics. 
+
 The LaTeX directory includes a [`lab.cls`](latex/lab.cls) file that you can use
-to create lab reports in LaTeX more easily. It also includes an example lab
-report that make use of it, in the [`complex`](latex/complex) subdirectory.
-The compiled PDF outputs are also in that directory so you can see what the finished
-result can look like.
+to create lab reports in LaTeX more easily. It also includes two example lab
+reports that make use of it, in the [`simple`](latex/simple) and
+[`complex`](latex/complex) subdirectories. The compiled PDF outputs are also in
+that directory so you can see what the finished result can look like.
 
 In order to use [`lab.cls`](latex/lab.cls) it is not necessary to understand
 how it works. An easy way to get started with it is to copy it it into the same
@@ -38,7 +40,7 @@ file:
 ```
 From there you probably want to make use of the `\labTitle`, `\labAuthor`,
 `\labCollaborators` and `\labDate` commands and call `\maketitle` right after
-your `\begin{document}` as shown in [the example](latex/complex/complex.tex).
+your `\begin{document}` as shown in [the example](latex/simple/simple.tex).
 For more information about how to use
 [`lab.cls`](latex/lab.cls) and the features it provides, please see [the
 examples](latex) or [contact Jake](mailto:waksbaum@princeton.edu).
