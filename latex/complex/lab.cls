@@ -35,12 +35,9 @@
 \RequirePackage{pifont}
 \RequirePackage{booktabs}
 \RequirePackage{titlesec}
-\RequirePackage[style=chem-acs,citestyle=authoryear-comp]{biblatex}
+\RequirePackage[style=chem-acs,citestyle=authoryear-comp]{biblatex} % Uncomment if you want bibliography
 \RequirePackage{color}
 \RequirePackage{listings}
-
-% Fix bold nabla issue
-\renewcommand{\boldsymbol}{\symbf}
 
 %% the following commands are needed for some matlab2tikz features
 \pgfplotsset{compat=newest}
@@ -80,8 +77,7 @@
 }
 
 % Setup SIUnitx
-\sisetup{math-micro = \text{µ}, text-micro = \text{µ}, group-separator = {,},
-  group-digits=integer, range-units=single, range-phrase = {--}, per-mode=symbol,per-symbol=/}
+\sisetup{group-separator = {,}, group-digits=integer, range-units=single, range-phrase = {--}, per-mode=symbol,per-symbol=/}
 
 \DeclareSIUnit\poise{P}
 \DeclareSIUnit\molar{M}
@@ -191,7 +187,7 @@
 \newcommand{\union}{\cup}
 \renewcommand{\checkmark}{\textrm{\ding{51}}}
 \newcommand{\xmark}{\textrm{\ding{55}}}
-\newcommand{\conc}[1]{\qty[\ce{#1}]}
+\newcommand{\conc}[1]{\ensuremath{\qty[\ce{#1}]}}
 
 % Probability commands: Expectation, Variance, Covariance, Bias
 \newcommand{\E}{\mathrm{E}}
@@ -247,3 +243,8 @@
 }
 
 \setlength{\parskip}{1em}
+
+% Numbering
+\renewcommand{\theenumi}{\arabic{enumi}}
+\renewcommand{\theenumii}{\alph{enumii}}
+\renewcommand{\theenumiii}{\roman{enumiii}}

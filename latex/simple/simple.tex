@@ -1,0 +1,159 @@
+\documentclass{lab}
+
+% For a real lab don't use blindtext
+\usepackage{blindtext}
+
+\labTitle{Laboratory Report \#1 --- My First Lab Report}
+\labAuthor{Thomas Gregor}
+\labCollaborators{Joshua Shaevitz, Peter Andolfatto}
+\labDate{Monday, November 14}
+
+\begin{document}
+
+\maketitle
+
+\section{Introductory Questions}
+\label{Sec:Intro_Questions}
+
+\begin{enumerate}
+
+\item \textbf{You usually have to answer introdcutory questions this is
+    a nice way to lay that out.}
+
+  Woah, this is so nice! Here is an equation
+  \begin{equation}
+    \int_a^b f(x) \dd{x} = F(a) - F(b)
+    \label{Eq:cool_eq}
+  \end{equation}
+
+\item \textbf{Is it true that they are numbered automatically?}
+
+  It appears so! I thought Eq.~\eqref{Eq:cool_eq} was so interesting and
+  fun I want to talk about it again over here.
+
+\end{enumerate}
+
+\section{Introduction}
+\label{Sec:Intro}
+
+\textbf{Focus Sentence: } We attempt to measure the length of the
+flagella of \textit{E. Coli} using only a ruler, a microscope, and
+tweezers.
+
+We used five strains of \textit{E. coli} whose characteristics are
+summarized in Table~\ref{table:strains}: some have flagella that we can
+measure, but some are also too unfriendly to aproach safely.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{rll}
+    \toprule
+    Strain \# & Has Flagella & Is Friendly \\
+    \midrule
+    1         & no           & no \\
+    2         & yes          & \textbf{no} \\
+    3         & no           & yes \\
+    4         & yes          & yes \\
+    \bottomrule
+  \end{tabular}
+  \caption{Summary of Strains}\label{table:strains}
+\end{table}
+
+We also have some beautiful figures such as Fig.~\ref{Fig:1}, of which
+Fig.~\ref{Fig:b_bright} is clearly the best.
+
+\blindtext[2]
+
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth,height=2in]{smile}
+    \caption{Happy}\label{Fig:b_bright}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth,height=2in]{smile}
+    \caption{Smiley}\label{Fig:b_dark}
+  \end{subfigure}
+  \\
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth,height=2in]{smile}
+    \caption{Yellow}\label{Fig:d_bright}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth,height=2in]{smile}
+    \caption{Cheerful}\label{Fig:d_dark}
+  \end{subfigure}
+  \caption{Here are four figures in a square pattern.}\label{Fig:1}
+\end{figure}
+
+\blindtext[2]
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.4\textwidth]{smile}
+  \caption{Here is a figure all by itself.}\label{Fig:gel}
+\end{figure}
+
+\blindtext[2]
+
+\section{Concluding Questions}
+\label{Sec:Con_Questions}
+
+\begin{enumerate}
+\item \textbf{Describe some other things that we can do here with math.}
+  \begin{enumerate}
+  \item Easy differentials with nice spacing!
+    \begin{align}
+      \dd{m} &= \lambda \dd{x} \\
+      \dv{m}{x} &= \lambda \\
+      \dv{x}\qty\Big[V\ell^2] &= \lambda
+    \end{align}
+
+  \item Nice brackets and parentheses that resize!
+    \begin{equation}
+      \qty(\frac{1}{1 + x})^2 = \qty[1 + x + x^2 + x^3 + \cdots + x^n]^2
+    \end{equation}
+
+  \item We've got all sorts of vectors!
+    \begin{equation}
+      \dd{\va*{x}} = \va{a} \vdot \va*{a} \vdot \vb{b} \cross \vb*{b} \cross \vu{u} \cross \vu*{u}
+    \end{equation} 
+
+  \item We've got partials!
+    \begin{equation}
+      \pdv{y}{x}
+    \end{equation}
+  \end{enumerate}
+  
+  For more information see http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/physics/physics.pdf.
+
+\item \textbf{What else can we do?}
+
+  For chemistry, we can say that there \ce{O2 + 2H2 -> 2H2O}, or that
+  \(\conc{H2O} = \SI{100}{\micro\molar}\) is increasing.
+
+  We can also make differential equations:
+  \begin{equation}
+    \dv{\conc{A}}{t} = -k\conc{A}
+  \end{equation}
+
+  For units, we can say that magnetic fields are measured in
+  \si{\tesla}, $\SI{1}{\newton} =
+  \SI{1}{\kilo\gram\meter\per\second\squared}$, and that the speed of
+  light is \SI{3e9}{\meter\per\second}, and that human speeds are
+  usually \SIrange{0}{30}{\meter\per\second}.
+\end{enumerate}
+
+\section{Acknowledgments}
+\label{Sec:Ack}
+
+\pledge{Jake Waksbaum}
+
+\section{MATLAB Code}
+\label{Sec:MATLAB}
+
+\lstinputlisting[language=Matlab]{simple.m}
+
+\end{document}
